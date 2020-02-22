@@ -1,8 +1,13 @@
+from django.shortcuts import render
+from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Datalist
 from .serializer import DatalistSerializer
+
+def index(request):
+    return render(request,'index.html')
 
 @api_view(['GET', 'POST'])
 def data_list(request):
@@ -27,7 +32,6 @@ def data_detail(request, pk):
     Retrieve, update or delete a code snippet.
     """
     try:
-        # snippet = Datalist.objects.get(pk=pk)
         snippet = Datalist.objects.get(pk=pk)
     except Datalist.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)

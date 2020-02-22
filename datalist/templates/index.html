@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sjia Data Portal</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- jQuery-->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var j=1;
+        function addtr(){
+            var tableobj =document.getElementById("tid");
+            var vlist=["User2","LOS","5105105105105100", "(319)-883-4480", "2020-02-23","7f38e7a645fbd1b3c68fbc75ecd62d24"]
+            var trobj =document.createElement("tr");
+            <!--Generate new line with data from vlist-->
+            for (var i = 0; i < vlist.length; i++) {
+                suffix=Math.floor(Math.random()*100000)
+                var tdobj = document.createElement("td");
+                if (i==0){
+                    tdobj.innerHTML="User"+suffix;
+                } else if (i==4){
+                    var d=new Date()
+                    tdobj.innerHTML=d.toUTCString()
+                } else {
+                    tdobj.innerHTML=vlist[i];
+                    }
+                trobj.appendChild(tdobj);
+            }
+            var tdobj = document.createElement("td");
+            tdobj.innerHTML="<input type='button' value='Book'>";
+            trobj.appendChild(tdobj);
+            tableobj.appendChild(trobj);
+        }
+    </script>
+
+</head>
+<body>
+<div class="page-header">
+    <h1>Data Pool </h1>
+</div>
+
+<div class="contain page-body">
+    <button type="button" class="btn btn-default btn-sm" id="addnew" onclick="addtr()">Generate new line</button>
+    <button type="button" class="btn btn-default btn-sm" id="get-latest" onclick="delecttr(this)">Load active data</button>
+    <p>
+    <div class="panel panel-default">
+        <div class="panel-heading">Data Site</div>
+        <div class="panel-body">
+            <!--    <p>Click button to generate new data.</p> -->
+        </div>
+        <table class="table" id="tid">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Cardnumber</th>
+                <th>Phonenumber</th>
+                <th>Created</th>
+                <th>Token</th>
+                <th>BookIt</th>
+            </tr>
+            <tr id="one"></tr>
+        </table>
+    </div>
+<!--        <div class="panel panel-footer">&copy;Copyright by sjia</div>-->
+</div>
+<p>
+    </table>
+</body>
+</html>
