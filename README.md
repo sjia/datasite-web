@@ -1,6 +1,6 @@
 ## API Intro
 ### Return all the data in the list
-GET http://127.0.0.1:8000/datalist/all/ 201 Created | 400 Bad Request
+GET http://127.0.0.1:8000/datalist/all/ 200 OK | 404 NOT FOUND
 POST http://127.0.0.1:8000/datalist/all/ application/json  201 Created | 400 Bad Request
 
 ### Return by id
