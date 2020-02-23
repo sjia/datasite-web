@@ -4,4 +4,4 @@ from .models import Datalist
 class DatalistSerializer(serializers.ModelSerializer):
     class Meta:
         model=Datalist
-        fields=("id", "name")
+        fields=("id", "name", "city","cardnumber","phonenumber","created","token")

@@ -7,7 +7,11 @@ from .models import Datalist
 from .serializer import DatalistSerializer
 
 def index(request):
-    return render(request,'index.html')
+    # datalists=[Datalist.objects.get(id=1),Datalist.objects.get(id=2)]
+    datalists=Datalist.objects.all()
+    return render(request,'index.html', {'datalists': datalists})
+
+
 
 @api_view(['GET', 'POST'])
 def data_list(request):

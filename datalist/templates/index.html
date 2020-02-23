@@ -13,7 +13,11 @@
     <!-- jQuery-->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <!--    <script src="myjs.js"></script>-->
     <script>
+       function deleteTr(obj){
+           obj.parentNode.parentNode.remove();
+           }
         var j=1;
         function addtr(){
             var tableobj =document.getElementById("tid");
@@ -25,21 +29,31 @@
                 var tdobj = document.createElement("td");
                 if (i==0){
                     tdobj.innerHTML="User"+suffix;
+                } else if (i==2){
+                    tdobj.innerHTML= Math.floor(Math.random()*100000+100000)+'51051'+Math.floor(Math.random()*100000+100000)
+                 } else if (i==3){
+                    var middle=Math.floor(Math.random()*(1000-100))+100
+                    console.log(middle)
+                    var right=Math.floor(Math.random()*(10000-1000))+1000
+                    console.log(right)
+                    tdobj.innerHTML= '(319)-'+middle+'-'+right
                 } else if (i==4){
                     var d=new Date()
                     tdobj.innerHTML=d.toUTCString()
+                } else if (i==5){
+                    tdobj.innerHTML="7f38e7a645fbd1b3c68fbc"+Math.random().toString(36).substr(2)
                 } else {
                     tdobj.innerHTML=vlist[i];
                     }
                 trobj.appendChild(tdobj);
             }
             var tdobj = document.createElement("td");
-            tdobj.innerHTML="<input type='button' value='Book'>";
+            tdobj.innerHTML="<input type='button' value='Book' onclick='deleteTr(this)'>";
             trobj.appendChild(tdobj);
             tableobj.appendChild(trobj);
         }
-    </script>
 
+    </script>
 </head>
 <body>
 <div class="page-header">
@@ -48,7 +62,8 @@
 
 <div class="contain page-body">
     <button type="button" class="btn btn-default btn-sm" id="addnew" onclick="addtr()">Generate new line</button>
-    <button type="button" class="btn btn-default btn-sm" id="get-latest" onclick="delecttr(this)">Load active data</button>
+    <!--    <button type="button" class="btn btn-default btn-sm" id="addnew" onclick="addtr()">Run data jobs</button>-->
+    <!--    <button type="button" class="btn btn-default btn-sm" id="load-more" onclick="loadmore()">Load active data</button>-->
     <p>
     <div class="panel panel-default">
         <div class="panel-heading">Data Site</div>
@@ -65,10 +80,22 @@
                 <th>Token</th>
                 <th>BookIt</th>
             </tr>
-            <tr id="one"></tr>
+            <!--            <tr id="one"></tr>-->
+            <!--            {% for i in datalists %}-->
+            <!--                <tr id="one">-->
+            <!--                    <th>{{ i.name }}</th>-->
+            <!--                    <th>{{ i.city }}</th>-->
+            <!--                    <th>{{ i.cardnumber }}</th>-->
+            <!--                    <th>{{ i.phonenumber }}</th>-->
+            <!--                    <th>{{ i.created }}</th>-->
+            <!--                    <th>{{ i.token }}</th>-->
+            <!--                    <th><button id="bid" onclick='deleteTr(this)'>BookIt</button></th>-->
+            <!--                </tr>-->
+            <!--            {% endfor %}-->
         </table>
     </div>
-<!--        <div class="panel panel-footer">&copy;Copyright by sjia</div>-->
+    <!--      {{ text.text }}-->
+    <!--        <div class="panel panel-footer">&copy;Copyright by sjia</div>-->
 </div>
 <p>
     </table>
