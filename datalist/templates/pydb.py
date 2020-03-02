@@ -1,5 +1,9 @@
-import requests, json
+import eel
+import requests
 
+@eel.expose
+def plus(a, b):
+    return 3
 
 class RunMain:
     def send_post(self, url, data):
@@ -23,7 +27,7 @@ class RunMain:
 
 if __name__ == '__main__':
     run = RunMain()
-    url = "http://127.0.0.1:8000/datalist/all/"
+    url = "http://127.0.0.1:8000/index/all/"
     data = {"name": "User8",
             "city": "LA",
             "cardnumber": "5105105105105100",
@@ -32,6 +36,6 @@ if __name__ == '__main__':
             "token": "7f38e7a645fbd1b3c68fbc75ecd62d24"
             }
     data1 = {"name": "User8"}
-    print(run.run_main(url, 'POST', data))
+    # print(run.run_main(url, 'POST', data))
     print(run.run_main(url, 'GET', 1))
-    print(run.run_main(url, 'GET'))
+    # print(run.run_main(url, 'GET'))
