@@ -44,7 +44,7 @@ datafaker==0.6.4
 decorator==4.4.0
 defusedxml==0.6.0
 distributed==2.1.0
-Django==2.1.4
+Django==2.2.13
 django-mysql==3.2.0
 djangorestframework==3.10.3
 docutils==0.14
